@@ -1,0 +1,47 @@
+\documentclass[bibliography=totocnumbered]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{natbib}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\title{SQL Injection}
+\subtitle{LAB}
+\author{Víctor Nieves Sánchez }
+\date{Ultima modificación \today{}}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\newpage
+\listoffigures
+
+\newpage
+
+
+\section{Abstract}
+A summary of the scope and significance of the project, the methodology / techniques used, the results gained / outcomes generated and the conclusions obtained. Abstracts are generally a single paragraph and less than 250 words.
+
+
+\section{Literature review}
+This should demonstrate a sound understanding of the current state of knowledge in the field, which should critically assess previous and current work in the public domain, drawing out the major facts, views, trends etc. (not just listing a series of literature / information sources and/or literature/ information abstracts). 
+\subsection{Cosas}
+This should then develop into a description of the need for the project and so define the
+project aims and how they are to be attained in the methodology and/or experimental work. Literature in \LaTeX{} \citep{ardell05} is best done using BibTeX \citep{ashbyjones, hk}. For your individual project you are asked to use the Harvard method for citations -- \LaTeX{} can do it very easily (see above).
+
+\newpage
+
+\bibliographystyle{plain} % We choose the "plain" reference style
+\bibliography{referencias} % Entries are in the "refs.bib" file
+
+\end{document}
