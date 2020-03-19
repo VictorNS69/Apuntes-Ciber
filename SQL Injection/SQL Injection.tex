@@ -1,26 +1,74 @@
 \documentclass[bibliography=totocnumbered]{scrartcl}
 
+% Codificación
 \usepackage[utf8]{inputenc}
-\usepackage[spanish]{babel}
 \usepackage{natbib}
+% Idioma
+\usepackage[spanish]{babel}
+% Links
 \usepackage{hyperref}
 \hypersetup{
-    colorlinks,
+    colorlinks=true,
     citecolor=black,
     filecolor=black,
     linkcolor=black,
     urlcolor=black
 }
+% Código de programación
+\usepackage{listings}
 
-\title{SQL Injection}
-\subtitle{LAB}
-\author{Víctor Nieves Sánchez }
-\date{Ultima modificación \today{}}
+% SetUp de colores para código
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    %backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    %numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+% Cambios de color para links
+\newcommand{\changeurlcolor}[1]{\hypersetup{urlcolor=#1}}       
+
+% Imágenes
+\usepackage{graphicx}
+
+\title{SQL injection}
+%\subtitle{subtitle}
+\author{Víctor Nieves Sánchez}
+\date{Última modificación \today{}}
 
 \begin{document}
-
 \maketitle
+\section*{Disclaimer}
+Este documento se ha elaborado por los autores, obteniendo información de diversos recursos, principalmente de la página web de \changeurlcolor{blue}\href{https://portswigger.net/web-security}{\textit{PortSwigger}}.\
 
+El objetivo de este documento es proporcionar una breve referencia de ayuda para el lector.\
+
+Si deseas más información, os recomendamos realizar los labs de su página web:
+\begin{center}
+\changeurlcolor{blue}\href{https://portswigger.net/web-security}{https://portswigger.net/web-security}    
+\end{center}
+
+\newpage
 \tableofcontents
 
 \newpage
@@ -28,20 +76,59 @@
 
 \newpage
 
+\section{¿Qué es SQL injection?}
+Normalmente conocida como \textit{SQLi} es una vulnerabilidad que permite al atacante interferir en las consultas que la aplicación hace a la base de datos. Generalmente permite al atacante obtener información la cual normalmente un usuario no tiene acceso. Esto puede incluir información de otro usuario o cualquier información de la aplicación que esté almacenada en la base de datos. En muchos casos, el atacante puede modificar o eliminar los registros que existen en la base de datos.
 
-\section{Abstract}
-A summary of the scope and significance of the project, the methodology / techniques used, the results gained / outcomes generated and the conclusions obtained. Abstracts are generally a single paragraph and less than 250 words.
+En algunas situaciones, la vulnerabilidad se puede escalar hasta comprometer el propio servidor o realizar un ataque \textit{Denial-of-Service (DoS)}.
 
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{figures/SQLi.png}
+  \caption{Esquema de SQLi}
+  \label{fig:SQLi1}
+\end{figure}
 
-\section{Literature review}
-This should demonstrate a sound understanding of the current state of knowledge in the field, which should critically assess previous and current work in the public domain, drawing out the major facts, views, trends etc. (not just listing a series of literature / information sources and/or literature/ information abstracts). 
-\subsection{Cosas}
-This should then develop into a description of the need for the project and so define the
-project aims and how they are to be attained in the methodology and/or experimental work. Literature in \LaTeX{} \citep{ardell05} is best done using BibTeX \citep{ashbyjones, hk}. For your individual project you are asked to use the Harvard method for citations -- \LaTeX{} can do it very easily (see above).
+\section{Ejemplos de SQLi}
+Hay una gran variedad de SQLi, ataques y técnicas, dependiendo de la situación concreta. Algunos de los ejemplos más comunes se explicarán a continuación.
 
+\subsection{Obtención de datos ocultos}
+Considera una aplicación de compras que muestra productos de diferentes categorías. Cuando el usuario clica en una categoría concreta \textit{C1}, la petición URL será parecida a:
+\begin{center}
+\nolinkurl{https://website.com/productos?categoria=C1}
+\end{center}
+Esta petición genera una consulta SQL que devuelve la lista de productos de la categoría concreta. La consulta puede ser algo parecido a:
+\begin{lstlisting}[language=SQL]
+        SELECT * FROM productos WHERE categoria = 'C1' AND stock = 1
+\end{lstlisting}
+Esta consulta pide a la base de datos que devuelva todos los detalles \textit{(*)} de la tabla \textit{productos} cuya categoría sea \textit{C1} y estén en \textit{stock}.\\
+La restricción \textit{stock = 1} se está usando para mostrar solo los elementos que están en stock, ocultando los que no estén (\textit{stock = 0}).\\
+
+Considerando que la aplicación no implementa ninguna defensa frente SQLi, podemos construir un ataque como
+\begin{center}
+\nolinkurl{https://website.com/productos?categoria=C1'--}
+\end{center}
+Por lo que la consulta a la base de datos resultante sería:
+\begin{lstlisting}[language=SQL]
+        SELECT * FROM productos WHERE categoria = 'C1'--' AND stock = 1
+\end{lstlisting}
+La calve está en que el elemento \textit{\texttt{--}} es un indicador de comentario en SQL, y esto implica que lo que está a la derecha de éste simbolo se interprete como un comentario, por lo que la restricción deja de formar parte de la consulta.\\
+
+Avanzando un poquito más, podemos conseguir que la aplicación nos devuelva todos los productos de todas las categorías. Para ello, construimos una consulta de la siguiente manera
+\begin{center}
+\nolinkurl{https://website.com/productos?categoria=C1'+OR+1=1--}
+\end{center}
+La consulta resultante sería:
+\begin{lstlisting}[language=SQL]
+  SELECT * FROM productos WHERE categoria = 'C1' OR 1=1--' AND stock = 1
+\end{lstlisting}
+Por lo que la respuesta nos devolverá todos los elementos que sean de la categoría \textit{C1} o que cumplan la condición \textit{1=1}, y como esta condición es siempre cierta, nos devolverá todos los productos.\\
+
+\subsection{Modificar la lógica de la aplicación}
+link https://portswigger.net/web-security/sql-injection\#subverting-application-logic
 \newpage
-
-\bibliographystyle{plain} % We choose the "plain" reference style
-\bibliography{referencias} % Entries are in the "refs.bib" file
+NO SON REFERENCIAS REALES, SON DE EJEMPLO
+% Citar todas las ref (incluidas las que no han sido citadas)
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{referencias}
 
 \end{document}
