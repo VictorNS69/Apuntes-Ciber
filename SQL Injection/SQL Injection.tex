@@ -59,9 +59,9 @@
 \begin{document}
 \maketitle
 \section*{Disclaimer}
-Este documento se ha elaborado por los autores, obteniendo información de diversos recursos, principalmente de la página web de \changeurlcolor{blue}\href{https://portswigger.net/web-security}{\textit{PortSwigger}}.\
+Este documento se ha elaborado por los autores, obteniendo información de diversos recursos, principalmente de la página web de \changeurlcolor{blue}\href{https://portswigger.net/web-security}{\textit{PortSwigger}}.\\
 
-El objetivo de este documento es proporcionar una breve referencia de ayuda para el lector.\
+El objetivo de este documento es proporcionar una breve referencia de ayuda para el lector.\\
 
 Si deseas más información, os recomendamos realizar los labs de su página web:
 \begin{center}
@@ -77,7 +77,7 @@ Si deseas más información, os recomendamos realizar los labs de su página web
 \newpage
 
 \section{¿Qué es SQL injection?}
-Normalmente conocida como \textit{SQLi} es una vulnerabilidad que permite al atacante interferir en las consultas que la aplicación hace a la base de datos. Generalmente permite al atacante obtener información la cual normalmente un usuario no tiene acceso. Esto puede incluir información de otro usuario o cualquier información de la aplicación que esté almacenada en la base de datos. En muchos casos, el atacante puede modificar o eliminar los registros que existen en la base de datos.
+Normalmente conocida como \textit{SQLi} es una vulnerabilidad que permite al atacante interferir en las consultas que la aplicación hace a la base de datos. Generalmente permite al atacante obtener información la cual normalmente un usuario no tiene acceso. Esto puede incluir información de otro usuario o cualquier información de la aplicación que esté almacenada en la base de datos. En muchos casos, el atacante puede modificar o eliminar los registros que existen en la base de datos.\\
 
 En algunas situaciones, la vulnerabilidad se puede escalar hasta comprometer el propio servidor o realizar un ataque \textit{Denial-of-Service (DoS)}.
 
@@ -123,7 +123,21 @@ La consulta resultante sería:
 Por lo que la respuesta nos devolverá todos los elementos que sean de la categoría \textit{C1} o que cumplan la condición \textit{1=1}, y como esta condición es siempre cierta, nos devolverá todos los productos.\\
 
 \subsection{Modificar la lógica de la aplicación}
-link https://portswigger.net/web-security/sql-injection\#subverting-application-logic
+Consideremos una aplicación que permite a los usuarios iniciar sesión con su usuario y su contraseña, y que la consulta SQL tiene la siguiente forma:
+\begin{lstlisting}[language=SQL]
+ SELECT * FROM usuarios WHERE username='username' AND password='password'
+\end{lstlisting}
+Si la consulta retorna los datos del usuario, entonces éste ha iniciado sesión correctamente, pero si los datos no son correctos, se rechazará el inicio de sesión.\\
+
+Un atacante puede iniciar sesión usando los caracteres de comentario en SQL \textit{(\texttt{--})} para eliminar la condición de la contraseña. Por ejemplo, supongamos que existe un usuario con \textit{username} "\textit{administrator}". Se podría construir un ataque que nos permita iniciar sesión con este usuario sin necesidad de saber la contraseña.
+\begin{lstlisting}[language=SQL]
+ SELECT * FROM usuarios WHERE username='administrator'--' AND password=''
+\end{lstlisting}
+
+\subsection{Obtención de información de otras tablas}
+
+
+
 \newpage
 NO SON REFERENCIAS REALES, SON DE EJEMPLO
 % Citar todas las ref (incluidas las que no han sido citadas)
@@ -132,3 +146,4 @@ NO SON REFERENCIAS REALES, SON DE EJEMPLO
 \bibliography{referencias}
 
 \end{document}
+
