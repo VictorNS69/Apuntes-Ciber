@@ -1,4 +1,4 @@
-FILE="SQL Injection.tex"  # path to your TeX file 
+FILE=SQLi.tex  # path to your TeX file 
 
 default: compile clean
 
