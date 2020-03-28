@@ -74,6 +74,22 @@ Si deseas más información, os recomendamos realizar los labs de su página web
 \newpage
 
 \section{¿Qué es Cross-site scripting?}
+\textit{Cross-site scripting} conocido como \textit{XSS}, es un tipo de vulnerabilidad web que permite al atacante comprometer la interacción de los usuarios con la aplicación. Esta vulnerabilidad normalmente permite al atacante hacerse pasar por la víctima, para llevar acabo cualquier acción que ésta pueda hacer, dándole acceso a la información del usuario. Si el usuario tiene privilegios de acceso en la aplicación, entonces el atacante podría ser capaz de hacerse con el control de la aplicación (funcionalidad y datos).
+
+\section{¿Cómo funciona el XSS?}
+Funciona manipulando una web vulnerable para que esta retorne código \textit{JavaScript} malicioso a los usuarios. Cuando este código se ejecuta en el buscador de una víctima, el atacante podrá comprometer la interacción de la víctima.
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{figures/xssStored.jpg}
+  \caption{Funcionamiento de XSS}
+  \label{fig:XssStored}
+\end{figure}
+
+\section{Tipos de XSS?}
+\subsection{XSS reflejado \textit{(Reflected XSS)}}
+
+\subsection{XSS almacenado \textit{(Stored XSS)}}
+
+\subsection{XSS basado en DOM \textit{(DOM-based XSS)}}
 
 
 \newpage
@@ -81,6 +97,7 @@ Si deseas más información, os recomendamos realizar los labs de su página web
 \nocite{*}
 \printbibliography 
 \end{document}
+
 
 
 
