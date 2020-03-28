@@ -1,4 +1,4 @@
-FILE=SQLi.tex  # path to your TeX file 
+FILE=XSS.tex  # path to your TeX file 
 
 default: compile clean
 
