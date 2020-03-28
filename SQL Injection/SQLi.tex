@@ -113,7 +113,7 @@ Por lo que la consulta a la base de datos resultante sería:
 \begin{lstlisting}[language=SQL]
         SELECT * FROM productos WHERE categoria = 'C1'--' AND stock = 1
 \end{lstlisting}
-La calve está en que el elemento \textit{\texttt{--}} es un indicador de comentario en SQL, y esto implica que lo que está a la derecha de éste simbolo se interprete como un comentario, por lo que la restricción deja de formar parte de la consulta.\\
+La calve está en que el elemento \textit{\texttt{--}} es un indicador de comentario en SQL, y esto implica que lo que está a la derecha de éste símbolo se interprete como un comentario, por lo que la restricción deja de formar parte de la consulta.\\
 
 Avanzando un poquito más, podemos conseguir que la aplicación nos devuelva todos los productos de todas las categorías. Para ello, construimos una consulta de la siguiente manera
 \begin{center}
@@ -132,7 +132,7 @@ Consideremos una aplicación que permite a los usuarios iniciar sesión con su u
 \end{lstlisting}
 Si la consulta retorna los datos del usuario, entonces éste ha iniciado sesión correctamente, pero si los datos no son correctos, se rechazará el inicio de sesión.\\
 
-Un atacante puede iniciar sesión usando los caracteres de comentario en SQL \textit{(\texttt{--})} para eliminar la condición de la contraseña. Por ejemplo, supongamos que existe un usuario con \textit{username} "\textit{administrator}". Se podría construir un ataque que nos permita iniciar sesión con este usuario sin necesidad de saber la contraseña de la siguiente manera:
+Un atacante puede iniciar sesión usando los caracteres de comentario en SQL \textit{(\texttt{--})} para eliminar la condición de la contraseña. Por ejemplo, supongamos que existe un usuario con \textit{username} \textit{''administrator''}. Se podría construir un ataque que nos permita iniciar sesión con este usuario sin necesidad de saber la contraseña de la siguiente manera:
 \begin{lstlisting}[language=SQL]
  SELECT * FROM usuarios WHERE username='administrator'--' AND password=''
 \end{lstlisting}
@@ -206,13 +206,22 @@ Es posible obtener información relevante de la base de datos, pero la consulta 
 \end{lstlisting}
 Para conocer las peculiaridades de cada base de datos, es aconsejable mirar alguna \textit{cheat sheet}\parencite[ver][]{cheat_sheet} e investigar y leer sobre la base de datos en cuestión.
 
-\subsection{Blind SQL injection}
+\section{Blind SQL injection}
+Como su nombre indica (\textit{blind}, ''a ciegas''), se refiere a cuando una aplicación es vulnerable a inyección SQL pero cuando las respuestas web no contienen los resultados de la consulta SQL o no se muestra ningún error de la base de datos.\\
 
+Cuando existe este tipo de vulnerabilidad, algunas técnicas cómo los \textit{ataques con UNION} no son efectivos, ya que no es posible ver las respuestas de la consulta a la base de datos. Por ello, hay otras técnicas que si son efectivas.
+\subsection{Provocando respuestas condicionales}
+
+\subsection{Provocando errores SQL}
+
+\subsection{Usando técnicas \textit{Out-of-Band}}
+\parencite{oast}
 
 \newpage
 % Citar todas las ref (incluidas las que no han sido citadas)
 \nocite{*}
 \printbibliography 
 \end{document}
+
 
 
