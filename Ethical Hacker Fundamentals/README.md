@@ -4,10 +4,10 @@ Notas realizadas en el curso Online de [Ethical Hacker Fundamentals](https://www
 
 Se dividirá en 3 laboratorios:
 
-- [Lab 1. Descubrir el perímetro de una red corporativa](#lab1.-descubrir-el-perímetro-de-una-red-corporativa)
-- [Lab 2. Ataques a los sistemas de autentificación corporativos](#lab2.-ataques-a-los-sistemas-de-autentificación-corporativos)
-- [Lab 3. Robo de las carpetas compartidas de una entidad mediante técnicas man-in-the-middle](#lab3.-robo-de-las-carpetas-compartidas-de-una-entidad-mediante-técnicas-man-in-the-middle)
-- [Lab 4. Conseguir privilegios en una máquina](#lab4.-conseguir-privilegios-en-una-máquina)
+- [Lab 1. Descubrir el perímetro de una red corporativa](#lab1-descubrir-el-perímetro-de-una-red-corporativa)
+- [Lab 2. Ataques a los sistemas de autentificación corporativos](#lab2-ataques-a-los-sistemas-de-autentificación-corporativos)
+- [Lab 3. Robo de las carpetas compartidas de una entidad mediante técnicas man-in-the-middle](#lab3-robo-de-las-carpetas-compartidas-de-una-entidad-mediante-técnicas-man-in-the-middle)
+- [Lab 4. Conseguir privilegios en una máquina](#lab4-conseguir-privilegios-en-una-máquina)
 
 Fecha: 27/05/20
 
