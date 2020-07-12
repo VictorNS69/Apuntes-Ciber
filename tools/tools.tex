@@ -64,7 +64,7 @@ El objetivo de este documento es proporcionar una breve referencia de ayuda para
 \tableofcontents
 
 \newpage
-\listoffigures
+%\listoffigures
 
 \newpage
 \section{Introducción}
@@ -76,15 +76,30 @@ Un \textbf{\textit{Sniffer}} es un programa que captura y analiza paquetes de re
 \item \textbf{Wireshark}\parencite{wireshark}: \textit{Wireshark} es el \textit{sniffer} de red más popular, con soporte en diversas plataformas.
 \item \textbf{Tcpdump}\parencite{tcpdump}: \textit{Tcpdump} es un \textit{sniffer} de linea de comandos disponible tanto en Linux como Unix.
 \item \textbf{Windump}\parencite{windump}: \textit{Windump} es la versión para Windows de \textit{tcpdump}\parencite{tcpdump}.
-\item \textbf{Cain \& Abel}\parencite{cain}: \textit{Cain \& Abel} es una herramienta ''todo en uno'' para capturar paquetes, grabar contraseñas usadas en un ataque \textit{MiTM}\parencite{mitm}, crackear hashes de contraseñas utilizando métodos como ataques de diccionario, de fuerza bruta y ataques basados en ''criptoanálisis'' y ataques de \textit{ARP y DNS poisoning}\parencite{arp}\parencite{dns}.
+\item \textbf{Cain \& Abel}\parencite{cain}: \textit{Cain \& Abel} es una herramienta ''todo en uno'' para capturar paquetes, grabar contraseñas usadas en un ataque \textit{MiTM}\parencite{mitm}, crackear hashes de contraseñas utilizando métodos como ataques de diccionario, de fuerza bruta y ataques basados en ''criptoanálisis'' y ataques de \textit{ARP\parencite{arp} y DNS\parencite{dns} poisoning}.
 \item \textbf{Kismet}\parencite{kismet}: \textit{Kismet} es una herramienta para \textit{sniffing} de redes inalámbricas, que sirve para para localizar y descubrir SSID's ocultas. También puede ser usada como un \textit{sniffer} pasivo de tráfico.
 \item \textbf{Ntop}\parencite{ntop}: \textit{Ntop} es una página web para analizar el tráfico web.
-\item \textbf{Network Miner}\parencite{networkminer}: \textit{Network Miner} es un \textit{sniffer}, capaz de identificar el SO. Automáticamente extrae los archivos contenidos en los paquetes capturados, incluyendo imágenes. 
+\item \textbf{Network Miner}\parencite{networkminer}: \textit{Network Miner} es un \textit{sniffer}, capaz de identificar el sistema operativo. Automáticamente extrae los archivos contenidos en los paquetes capturados, incluyendo imágenes. 
 \end{itemize}
+
+\newpage
+\section{Scanners}
+La fase de \textbf{\textit{scanning}} usa diversos procedimientos para identificar máquinas ''vivas'', así como los puertos abiertos, servicios desplegados, sistema operativo, arquitectura, etc. Se utilizan estas herramientas para identificar posibles vulnerabilidades o amenazas.\\
+El escaneo de la red se usa para poder generar un perfil de la organización del objetivo.
+\begin{itemize}
+\item \textbf{Nmap}\parencite{nmap}: \textit{Nmap} utiliza paquetes IP sin procesar de formas novedosas para determinar qué hosts están disponibles en la red, qué servicios (nombre y versión de la aplicación) ofrecen, qué sistemas operativos (y versiones) están ejecutando, qué tipo de paquetes de filtros/\textit{firewalls} están en uso, y docenas de otras características. 
+\item \textbf{Zenmap}\parencite{zenmap}: \textit{Zenmap} es la versión gráfica de \textit{nmap}\parencite{nmap}.
+\item \textbf{Angry IP Scanner}\parencite{angry}: \textit{Angry IP Scanner} o \textit{\textbf{ipscan}} es un \textit{scanner} de red \textit{open-source} diseñado para ser rápido y sencillo de usar. Escanea direcciones IP y puertos además de otras muchas características.
+\item \textbf{hping3}\parencite{hping3}: \textit{hping3} es una herramienta de línea de comandos orientado TCP/ensamblador de paquetes IP/analizador.
+\item \textbf{NetScan Tools}\parencite{netscan}: es una herramienta gráfica ''todo en uno'' soportada para sistemas Windows.
+\item \textbf{Nessus}\parencite{nessus}: \textit{Nessus} es un escáner de vulnerabilidades usado por pentesters, hackers y empresas centradas en la ciberseguridad.
+\end{itemize}
+
+\newpage
+\section{Enumeration}
 
 \newpage
 % Citar todas las ref (incluidas las que no han sido citadas)
 \nocite{*}
 \printbibliography 
 \end{document}
-
