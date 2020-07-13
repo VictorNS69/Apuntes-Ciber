@@ -1,4 +1,4 @@
-# Apuntes-BugBounty
+# Apuntes-Ciberseguridad
 Apuntes sobre ciberseguridad, vulnerabilidades y Bug Bounty. 
 
 ## Autores
