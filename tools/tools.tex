@@ -93,10 +93,21 @@ El escaneo de la red se usa para poder generar un perfil de la organización del
 \item \textbf{hping3}\parencite{hping3}: \textit{hping3} es una herramienta de línea de comandos orientado TCP/ensamblador de paquetes IP/analizador.
 \item \textbf{NetScan Tools}\parencite{netscan}: es una herramienta gráfica ''todo en uno'' soportada para sistemas Windows.
 \item \textbf{Nessus}\parencite{nessus}: \textit{Nessus} es un escáner de vulnerabilidades usado por pentesters, hackers y empresas centradas en la ciberseguridad.
+\item \textbf{SuperScan}\parencite{superscan}: \textit{SuperScan} nos permite escanear rangos de IP y escaneo de puertos. Soporta \textit{banner grabbing, ping, whois, tracert}, etc.
+\item \textbf{zANTI}\parencite{zanti}: Es un software de \textit{Android} usado para escanear puertos, realizar ataques MiTM\parencite{mitm}, robo de sesión, redirecciones, etc.
+\item \textbf{NBTScan} \parencite{nbtscan}: \textit{NBTScan} es una herramienta de línea de comandos que busca servidores de nombres \textit{NETBIOS}\parencite{netbios} abiertos en una red TCP/IP local o remota.
 \end{itemize}
 
 \newpage
 \section{Enumeration}
+La \textbf{enumeración} se define como el proceso de extracción de información, como nombres de usuario, nombres de máquinas, recursos de red, recursos compartidos y servicios de un sistema.
+\begin{itemize}
+\item \textbf{DumpSec}\parencite{dumpsec}: \textit{DumpSec} es un programa de auditoría de seguridad para Windows que sirve para revelar usuarios, grupos, impresoras, recursos compartidos, información de registro y demás en un formato fácil de leer. También es muy útil para encontrar información sobre el sistema operativo  para fines de escalada de privilegios.
+\item \textbf{SuperScan} \parencite{superscan}: La misma herramienta mencionada en el apartado anterior. También es usada para enumeración.
+\item \textbf{Sublist3r}\parencite{sublist3r}: \textit{Sublist3r} es una herramienta escrita en \textit{Python} diseñada para enumerar subdominios de sitios web usando \textit{OSINT}\parencite{osint}.
+\item \textbf{Netcat}\parencite{netcat}: Es una herramienta simple que puede leer y escribir datos a través de una conexión TCP o UDP. Es muy útil porque puede crear casi cualquier tipo de conexión, incluyendo un enlace de sesión. Eso permite a los actores crear conexiones de \textit{shell} e \textit{shell inversa} entre dos máquinas (\textit{endpoints}). Permite también enviar y recibir archivos, y ejecutar comandos tanto en el host como sistemas comprometidos.
+\item \textbf{Cryptcat}\parencite{cryptcat}: Es una variante de \textit{Netcat}\parencite{netcat} que encripta las comunicaciones, haciéndola una herramienta útil para evadir los IDS o el \textit{sniffing}.
+\end{itemize}
 
 \newpage
 % Citar todas las ref (incluidas las que no han sido citadas)
