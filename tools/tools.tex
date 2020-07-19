@@ -73,13 +73,13 @@ Este documento enumera una serie de herramientas útiles para hacking.
 \section{Sniffers}
 Un \textbf{\textit{Sniffer}} es un programa que captura y analiza paquetes de red, tanto de entrada como de salida.
 \begin{itemize}
-\item \textbf{Wireshark}\parencite{wireshark}: \textit{Wireshark} es el \textit{sniffer} de red más popular, con soporte en diversas plataformas.
-\item \textbf{Tcpdump}\parencite{tcpdump}: \textit{Tcpdump} es un \textit{sniffer} de linea de comandos disponible tanto en Linux como Unix.
-\item \textbf{Windump}\parencite{windump}: \textit{Windump} es la versión para Windows de \textit{tcpdump}\parencite{tcpdump}.
-\item \textbf{Cain \& Abel}\parencite{cain}: \textit{Cain \& Abel} es una herramienta ''todo en uno'' para capturar paquetes, grabar contraseñas usadas en un ataque \textit{MiTM}\parencite{mitm}, crackear hashes de contraseñas utilizando métodos como ataques de diccionario, de fuerza bruta y ataques basados en ''criptoanálisis'' y ataques de \textit{ARP\parencite{arp} y DNS\parencite{dns} poisoning}.
-\item \textbf{Kismet}\parencite{kismet}: \textit{Kismet} es una herramienta para \textit{sniffing} de redes inalámbricas, que sirve para para localizar y descubrir SSID's ocultas. También puede ser usada como un \textit{sniffer} pasivo de tráfico.
-\item \textbf{Ntop}\parencite{ntop}: \textit{Ntop} es una página web para analizar el tráfico web.
-\item \textbf{Network Miner}\parencite{networkminer}: \textit{Network Miner} es un \textit{sniffer}, capaz de identificar el sistema operativo. Automáticamente extrae los archivos contenidos en los paquetes capturados, incluyendo imágenes. 
+    \item \textbf{Wireshark}\parencite{wireshark}: \textit{Wireshark} es el \textit{sniffer} de red más popular, con soporte en diversas plataformas.
+    \item \textbf{Tcpdump}\parencite{tcpdump}: \textit{Tcpdump} es un \textit{sniffer} de linea de comandos disponible tanto en Linux como Unix.
+    \item \textbf{Windump}\parencite{windump}: \textit{Windump} es la versión para Windows de \textit{tcpdump}\parencite{tcpdump}.
+    \item \textbf{Cain \& Abel}\parencite{cain}: \textit{Cain \& Abel} es una herramienta ''todo en uno'' para capturar paquetes, grabar contraseñas usadas en un ataque \textit{MiTM}\parencite{mitm}, crackear hashes de contraseñas utilizando métodos como ataques de diccionario, de fuerza bruta y ataques basados en ''criptoanálisis'' y ataques de \textit{ARP\parencite{arp} y DNS\parencite{dns} poisoning}.
+    \item \textbf{Kismet}\parencite{kismet}: \textit{Kismet} es una herramienta para \textit{sniffing} de redes inalámbricas, que sirve para para localizar y descubrir SSID's ocultas. También puede ser usada como un \textit{sniffer} pasivo de tráfico.
+    \item \textbf{Ntop}\parencite{ntop}: \textit{Ntop} es una página web para analizar el tráfico web.
+    \item \textbf{Network Miner}\parencite{networkminer}: \textit{Network Miner} es un \textit{sniffer}, capaz de identificar el sistema operativo. Automáticamente extrae los archivos contenidos en los paquetes capturados, incluyendo imágenes. 
 \end{itemize}
 
 \newpage
@@ -87,30 +87,55 @@ Un \textbf{\textit{Sniffer}} es un programa que captura y analiza paquetes de re
 La fase de \textbf{\textit{scanning}} usa diversos procedimientos para identificar máquinas ''vivas'', así como los puertos abiertos, servicios desplegados, sistema operativo, arquitectura, etc. Se utilizan estas herramientas para identificar posibles vulnerabilidades o amenazas.\\
 El escaneo de la red se usa para poder generar un perfil de la organización del objetivo.
 \begin{itemize}
-\item \textbf{Nmap}\parencite{nmap}: \textit{Nmap} utiliza paquetes IP sin procesar de formas novedosas para determinar qué hosts están disponibles en la red, qué servicios (nombre y versión de la aplicación) ofrecen, qué sistemas operativos (y versiones) están ejecutando, qué tipo de paquetes de filtros/\textit{firewalls} están en uso, y docenas de otras características. 
-\item \textbf{Zenmap}\parencite{zenmap}: \textit{Zenmap} es la versión gráfica de \textit{nmap}\parencite{nmap}.
-\item \textbf{Angry IP Scanner}\parencite{angry}: \textit{Angry IP Scanner} o \textit{\textbf{ipscan}} es un \textit{scanner} de red \textit{open-source} diseñado para ser rápido y sencillo de usar. Escanea direcciones IP y puertos además de otras muchas características.
-\item \textbf{hping3}\parencite{hping3}: \textit{hping3} es una herramienta de línea de comandos orientado TCP/ensamblador de paquetes IP/analizador.
-\item \textbf{NetScan Tools}\parencite{netscan}: es una herramienta gráfica ''todo en uno'' soportada para sistemas Windows.
-\item \textbf{Nessus}\parencite{nessus}: \textit{Nessus} es un escáner de vulnerabilidades usado por pentesters, hackers y empresas centradas en la ciberseguridad.
-\item \textbf{SuperScan}\parencite{superscan}: \textit{SuperScan} nos permite escanear rangos de IP y escaneo de puertos. Soporta \textit{banner grabbing, ping, whois, tracert}, etc.
-\item \textbf{zANTI}\parencite{zanti}: Es un software de \textit{Android} usado para escanear puertos, realizar ataques MiTM\parencite{mitm}, robo de sesión, redirecciones, etc.
-\item \textbf{NBTScan} \parencite{nbtscan}: \textit{NBTScan} es una herramienta de línea de comandos que busca servidores de nombres \textit{NETBIOS}\parencite{netbios} abiertos en una red TCP/IP local o remota.
+    \item \textbf{Nmap}\parencite{nmap}: \textit{Nmap} utiliza paquetes IP sin procesar de formas novedosas para determinar qué hosts están disponibles en la red, qué servicios (nombre y versión de la aplicación) ofrecen, qué sistemas operativos (y versiones) están ejecutando, qué tipo de paquetes de filtros/\textit{firewalls} están en uso, y docenas de otras características. 
+    \item \textbf{Zenmap}\parencite{zenmap}: \textit{Zenmap} es la versión gráfica de \textit{nmap}\parencite{nmap}.
+    \item \textbf{Angry IP Scanner}\parencite{angry}: \textit{Angry IP Scanner} o \textit{\textbf{ipscan}} es un \textit{scanner} de red \textit{open-source} diseñado para ser rápido y sencillo de usar. Escanea direcciones IP y puertos además de otras muchas características.
+    \item \textbf{hping3}\parencite{hping3}: \textit{hping3} es una herramienta de línea de comandos orientado TCP/ensamblador de paquetes IP/analizador.
+    \item \textbf{NetScan Tools}\parencite{netscan}: es una herramienta gráfica ''todo en uno'' soportada para sistemas Windows.
+    \item \textbf{Nessus}\parencite{nessus}: \textit{Nessus} es un escáner de vulnerabilidades usado por pentesters, hackers y empresas centradas en la ciberseguridad.
+    \item \textbf{SuperScan}\parencite{superscan}: \textit{SuperScan} nos permite escanear rangos de IP y escaneo de puertos. Soporta \textit{banner grabbing, ping, whois, tracert}, etc.
+    \item \textbf{zANTI}\parencite{zanti}: Es un software de \textit{Android} usado para escanear puertos, realizar ataques MiTM\parencite{mitm}, robo de sesión, redirecciones, etc.
+    \item \textbf{NBTScan} \parencite{nbtscan}: \textit{NBTScan} es una herramienta de línea de comandos que busca servidores de nombres NETBIOS\parencite{netbios} abiertos en una red TCP/IP local o remota.
 \end{itemize}
 
 \newpage
 \section{Enumeration}
-La \textbf{enumeración} se define como el proceso de extracción de información, como nombres de usuario, nombres de máquinas, recursos de red, recursos compartidos y servicios de un sistema.
+La enumeración se define como el proceso de extracción de información, como nombres de usuario, nombres de máquinas, recursos de red, recursos compartidos y servicios de un sistema.
 \begin{itemize}
-\item \textbf{DumpSec}\parencite{dumpsec}: \textit{DumpSec} es un programa de auditoría de seguridad para Windows que sirve para revelar usuarios, grupos, impresoras, recursos compartidos, información de registro y demás en un formato fácil de leer. También es muy útil para encontrar información sobre el sistema operativo  para fines de escalada de privilegios.
-\item \textbf{SuperScan} \parencite{superscan}: La misma herramienta mencionada en el apartado anterior. También es usada para enumeración.
-\item \textbf{Sublist3r}\parencite{sublist3r}: \textit{Sublist3r} es una herramienta escrita en \textit{Python} diseñada para enumerar subdominios de sitios web usando \textit{OSINT}\parencite{osint}.
-\item \textbf{Netcat}\parencite{netcat}: Es una herramienta simple que puede leer y escribir datos a través de una conexión TCP o UDP. Es muy útil porque puede crear casi cualquier tipo de conexión, incluyendo un enlace de sesión. Eso permite a los actores crear conexiones de \textit{shell} e \textit{shell inversa} entre dos máquinas (\textit{endpoints}). Permite también enviar y recibir archivos, y ejecutar comandos tanto en el host como sistemas comprometidos.
-\item \textbf{Cryptcat}\parencite{cryptcat}: Es una variante de \textit{Netcat}\parencite{netcat} que encripta las comunicaciones, haciéndola una herramienta útil para evadir los IDS o el \textit{sniffing}.
+    \item \textbf{DumpSec}\parencite{dumpsec}: \textit{DumpSec} es un programa de auditoría de seguridad para Windows que sirve para revelar usuarios, grupos, impresoras, recursos compartidos, información de registro y demás en un formato fácil de leer. También es muy útil para encontrar información sobre el sistema operativo  para fines de escalada de privilegios.
+    \item \textbf{SuperScan} \parencite{superscan}: La misma herramienta mencionada en el apartado anterior. También es usada para enumeración.
+    \item \textbf{Sublist3r}\parencite{sublist3r}: \textit{Sublist3r} es una herramienta escrita en \textit{Python} diseñada para enumerar subdominios de sitios web usando OSINT\parencite{osint}.
+    \item \textbf{Netcat}\parencite{netcat}: Es una herramienta simple que puede leer y escribir datos a través de una conexión TCP o UDP. Es muy útil porque puede crear casi cualquier tipo de conexión, incluyendo un enlace de sesión. Eso permite a los actores crear conexiones de \textit{shell} e \textit{shell inversa} entre dos máquinas (\textit{endpoints}). Permite también enviar y recibir archivos, y ejecutar comandos tanto en el host como sistemas comprometidos.
+    \item \textbf{Cryptcat}\parencite{cryptcat}: Es una variante de \textit{Netcat}\parencite{netcat} que encripta las comunicaciones, haciéndola una herramienta útil para evadir los IDS o el \textit{sniffing}.
+    \item \textbf{TCPView}\parencite{tcpview}: \textit{TCPView} es una herramienta que enumera todas las conexiones TCP y UDP del \textit{endpoing} de la aplicación. Resuelve nombres de dominio para las IPs conectadas al sistema, además permite monitorizar los cambios en las conexiones y también permite cerrarlas.
 \end{itemize}
+
+\newpage
+\section{Password Cracking}
+
+\newpage
+\section{Wireless Tools}
+En esta sección se enumeran algunas herramientas que se usan en redes \textit{wireless}
+\begin{itemize}
+    \item \textbf{Kismet}\parencite{kismet}: Como ya se mencionó en el apartado de \textit{sniffing}, esta herramienta proporciona varias utilidades.
+    \item \textbf{inSSIDer}\parencite{inssider}: Esta herramienta es usada como monitor local de tráfico \textit{WiFi}.
+    \item \textbf{Reaver}\parencite{reaver}: \textit{Reaver} implementa un ataque de fuerza bruta contra los \textit{WiFi Protected Setup} (WPS) para recuperar las claves WPA/WPA2.
+    \item \textbf{Bluesnarfer}\parencite{bluesnarfer}: Una herramienta usada para obtener información de un dispositivo móvil a través de conexión bluetooth.
+    \item \textbf{Aircrack-ng}\parencite{aircrack}: \textit{Aircrack-ng} es un conjunto de herramientas para evaluar redes \textit{WiFi}. Se centra en las áreas de monitorización, ataque, testing y cracking de contraseñas.
+    \item \textbf{Airmon-ng}\parencite{airmon}: Herramienta de \textit{sniffing} de \textit{Aircrack-ng}\parencite{aircrack}.
+    \item \textbf{Airodump-ng}\parencite{airodump}: Herramienta de \textit{Aircrack-ng}\parencite{aircrack} usada para capturar paquetes \textit{802.11}. Esta herramienta también es capaz de mostrar cordenadas GPS.
+\end{itemize}
+
+\newpage
+\section{Logging and Event Viewing}
+
 
 \newpage
 % Citar todas las ref (incluidas las que no han sido citadas)
 \nocite{*}
 \printbibliography 
 \end{document}
+
+
+
+
