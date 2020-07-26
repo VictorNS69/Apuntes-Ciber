@@ -112,7 +112,18 @@ La enumeración se define como el proceso de extracción de información, como n
 
 \newpage
 \section{Password Cracking}
+El descifrado de contraseñas o \textit{password cracking} es el proceso de recuperación de contraseñas que se han almacenado en un equipo. Un acercamiento común es el ataque de fuerza bruta el cual consiste en adivinar repetitivamente la contraseña y corroborar contra un hash criptográfico existente de la contraseña.\\
 
+El descifrado de contraseñas puede servir para ayudar a un usuario a recuperar alguna contraseña olvidada, para obtener acceso no autorizado a un sistema, o ser implementada como medida preventiva por los administradores del sistema para buscar contraseñas fácilmente manipulables.
+
+\begin{itemize}
+    \item \textbf{L0phtCrack}\parencite{l0phtcrack}: Esta herramienta es usada para recuperar información sobre usuarios remotos o locales y para recuperar las correspondientes contraseñas.
+    \item \textbf{Ophcrack}\parencite{ophcrack}: Es una versión gratuita de \textit{l0phtcrack}\parencite{l0phtcrack}, con alguna caracteristica menos.
+    \item \textbf{John the Ripper}\parencite{john}: es una herramienta gratuita y \textit{open source} que permite crear reglas y usar listas personalizadas de contraseñas para recuperar.
+    \item \textbf{Trinity Rescue Kit}\parencite{trinity}: \textit{Trinity Rescue Kit (TRK)} es una distribución Linux que se ejecuta como un \textit{LiveCD} (es decir, se inicia desde el arranque de la máquina) para poder escanear y comprobar los discos duros desde fuera.
+    \item \textbf{Medusa}\parencite{medusa}: Es una herramienta rápida y modular que usa fuerza bruta en servicios de red como \textit{HTTP, MySQL, SMB, SMTP,} etc.
+    \item \textbf{RainbowCrack}\parencite{rainbow}: Esta herramienta usa \textit{rainbow tables}\parencite{rainbowTables} para reducir el tiempo que se invierte en las tareas de fuerza bruta.
+\end{itemize}
 \newpage
 \section{Wireless Tools}
 En esta sección se enumeran algunas herramientas que se usan en redes \textit{wireless}
@@ -127,15 +138,14 @@ En esta sección se enumeran algunas herramientas que se usan en redes \textit{w
 \end{itemize}
 
 \newpage
-\section{Logging and Event Viewing}
-
+\section{Otras herramientas}
+\begin{itemize}
+    \item \textbf{Snort}\parencite{snort}: \textit{Snort} es una herramienta gratuita que sirve como \textit{IDS}\parencite{ids} e \textit{IPS}\parencite{ips}.
+    \item \textbf{Metasploit}\parencite{metasploit}: Es un \textit{framework} automatizado capaz de explotar vulnerabilidades en varias plataformas.
+\end{itemize}
 
 \newpage
 % Citar todas las ref (incluidas las que no han sido citadas)
 \nocite{*}
 \printbibliography 
 \end{document}
-
-
-
-
